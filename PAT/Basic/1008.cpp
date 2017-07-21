@@ -7,7 +7,11 @@ int main()
 	int a[105];
 	int len,num;
 	cin>>len>>num;
+
+	//等价的右移位数
 	num=num%len;
+
+	//输入的同时实现移位操作
 	for(int i=num;i<len;i++)
 	{
 		cin>>a[i];
