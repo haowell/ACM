@@ -7,21 +7,20 @@ using namespace std;
 int main()
 {
 	string a,input;
+	
+	//用栈存储单词，实现先进后出（LIFO）/后进先出（FILO）的效果
 	stack<string> store;
-	while(getline(cin,input))
+
+	while(cin>>a)
 	{
-		istringstream sin(input);
-		while(sin>>a)
-		{
-			store.push(a);
-		}
-		cout<<store.top();
-		store.pop();
-		while(!store.empty())
-		{
-			cout<<" "<<store.top();
-			store.pop();
-		}
-		cout<<"\n";
+		store.push(a);
 	}
+	cout<<store.top();
+	store.pop();
+	while(!store.empty())
+	{
+		cout<<" "<<store.top();
+		store.pop();
+	}
+	cout<<"\n";
 }
