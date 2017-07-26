@@ -6,12 +6,16 @@
 #include<iomanip>
 #include<cmath>
 using namespace std;
+
+//记录某类月饼的信息，分别表示库存，总售价和单价
 struct Cake
 {
-	int amount;
-	int value;
+	double amount;
+	double value;
 	double price;
 };
+
+//排序规则，把单价高的排前面，先卖出去以获取最大收益
 bool cmp(Cake a,Cake b)
 {
 	return a.price>b.price;
@@ -29,11 +33,12 @@ int main()
 	for(int i=0;i<num;i++)
 	{
 		cin>>cake[i].value;
-		cake[i].price=double(cake[i].value)/double(cake[i].amount);
-		//cout<<cake[i].price<<"\n";
+		cake[i].price=cake[i].value/cake[i].amount;
 	}
 	sort(cake,cake+num,cmp);
-	for(int i=0;sum<maxdemand;i++)
+
+	//把单价高的月饼先卖出去，直至达到市场最大需求或者库存月饼全卖出
+	for(int i=0;sum<maxdemand&&i<num;i++)
 	{
 		if((sum+cake[i].amount)<maxdemand)
 		{
