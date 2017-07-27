@@ -17,23 +17,18 @@ void test(int num)
   	else if(num%2)
     	{
 		temp=(3*num+1)/2;
-
-		//防止得到数越界，输入的数小于等于100，只判断100以内的是否被覆盖，超过的数不考虑
-		if(temp<101)
-		{
-	      		use[temp]=1;
-		}
-      		test(temp);
     	}
   	else 
     	{
 		temp=num/2;
-		if(temp<101)
-		{
-			use[temp]=1;
-		}
-      		test(temp);
     	}
+
+	//防止得到数越界，输入的数小于等于100，只判断100以内的是否被覆盖，超过的数不考虑
+	if(temp<101)
+	{
+	      	use[temp]=1;
+	}
+      	test(temp);
 }
 
 //排序规则，用来给sort进行降序排序
@@ -50,7 +45,7 @@ int main()
 	int input[105],import[105];
 
 	//初始化是否被覆盖，开始时均未被覆盖
-	memset(use,sizeof(use),0);
+	memset(use,0,sizeof(use));
 	cin>>n;
 	for(int i=0;i<n;i++)
 	{
